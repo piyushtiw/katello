@@ -266,7 +266,7 @@ encrypted_password=$cr_password"
 
     def proxy_strings
       output = ''
-      output << "\nhttp_proxy=#{sanitize_proxy(proxy)}" if proxy.present?
+      output << "\n#{config.proxy_type}=#{sanitize_proxy(proxy)}" if proxy.present?
       output << "\nNO_PROXY=#{sanitize_proxy(no_proxy)}" if no_proxy.present?
       output << "\nNO_PROXY=*" if !proxy.present? && !no_proxy.present?
       output

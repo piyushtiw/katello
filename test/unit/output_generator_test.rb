@@ -93,6 +93,11 @@ module ForemanVirtWhoConfigure
         assert_includes generator.proxy_strings, "\nhttp_proxy=abc"
         assert_includes generator.proxy_strings, "\NO_PROXY=xyz"
       end
+
+      test 'it configures https proxy when https proxy is set' do
+        config.proxy = 'https://proxy.com'
+        assert_includes output, 'https_proxy=https://proxy.com'
+      end
     end
 
     describe 'error codes' do

@@ -247,6 +247,14 @@ module ForemanVirtWhoConfigure
       _(STATUS_DESCRIPTIONS[status])
     end
 
+    def proxy_type
+      if proxy && proxy.match("^https")
+        "https_proxy"
+      else
+        "http_proxy"
+      end
+    end
+
     private
 
     def remove_whitespaces
